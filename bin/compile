@@ -22,4 +22,4 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/libpqxx.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:vendor/libpqxx-4.0.1-heroku/include"' >> $PROFILE_PATH
 echo 'export LIBRARY_PATH="$LIBRARY_PATH:vendor/libpqxx-4.0.1-heroku/lib"' >> $PROFILE_PATH
-echo 'BUNDLE_BUILD__HMSEARCH-POSTGRES: "--with-pqxx-include=vendor/libpqxx-4.0.1-heroku/include --with-pqxx-lib=vendor/libpqxx-4.0.1-heroku/lib" >> .bundle/config' >> $PROFILE_PATH
+echo ''\BUNDLE_BUILD__HMSEARCH-POSTGRES: "--with-pqxx-include=vendor/libpqxx-4.0.1-heroku/include --with-pqxx-lib=vendor/libpqxx-4.0.1-heroku/lib" >> .bundle/config'\' >> $PROFILE_PATH

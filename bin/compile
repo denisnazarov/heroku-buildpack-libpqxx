@@ -4,10 +4,10 @@ indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Installing taglib"
+echo "-----> Installing libpqxx"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
-DOWNLOAD_URL="http://s3.amazonaws.com/purple-cloud-binaries/heroku/taglib.tar.gz"
+DOWNLOAD_URL="https://s3.amazonaws.com/denisnazarov/libpqxx-4.0.1-heroku.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
@@ -17,7 +17,7 @@ cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/taglib.sh"
+PROFILE_PATH="$BUILD_DIR/.profile.d/libpqxx.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/taglib/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/taglib/lib"' >> $PROFILE_PATH
+echo 'export CPPATH="$CPPATH:vendor/libpqxx-4.0.1-heroku/include"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/libpqxx-4.0.1-heroku/lib"' >> $PROFILE_PATH

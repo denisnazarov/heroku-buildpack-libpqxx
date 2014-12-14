@@ -8,6 +8,7 @@ echo "-----> Installing libpqxx"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="https://s3.amazonaws.com/denisnazarov/libpqxx-4.0.1-heroku.tar.gz"
+BUNDLE_CONFIG=".bundle/config"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
@@ -21,3 +22,4 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/libpqxx.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export CPPATH="$CPPATH:vendor/libpqxx-4.0.1-heroku/include"' >> $PROFILE_PATH
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/libpqxx-4.0.1-heroku/lib"' >> $PROFILE_PATH
+echo 'BUNDLE_BUILD__HMSEARCH-POSTGRES: "--with-pqxx-include=vendor/libpqxx-4.0.1-heroku/include --with-pqxx-lib=vendor/libpqxx-4.0.1-heroku/lib"' >> $BUNDLE_CONFIG

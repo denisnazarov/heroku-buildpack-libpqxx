@@ -22,3 +22,4 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/libpqxx.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/app/vendor/libpqxx/include"' >> $PROFILE_PATH
 echo 'export LIBRARY_PATH="$LIBRARY_PATH:/app/vendor/libpqxx/lib"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/vendor/libpqxx/lib"' >> $PROFILE_PATH
